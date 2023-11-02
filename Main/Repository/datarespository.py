@@ -1,9 +1,6 @@
 #Main.Repository.datarespository.py
 
-import sqlite3
-from Main.Repository.mainrepository import DatabaseConnection
-
-class Datarepository(Repository):
+class Datarepository:
 
 	def __init__(self, connection):
 		self.__connection = connection

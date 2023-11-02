@@ -9,7 +9,7 @@ if len(sys.argv) != 2:
 	print("Geef minimaal 2 argument op.")
 
 databasename = input("Geef de database naam op of druk op enter voor de standaar database naam.")
-if(databasename == None or databasename.strip() == ''):
+if databasename is None or databasename.strip() == '':
 	databasename = "corthalsjordy.db"
 csv = "src.csv"
 setup = Setup(databasename, csv)

@@ -1,9 +1,5 @@
 #setup.repo.py
 
-import sqlite3, os, sys
-
-from Main.Repository.mainrepository import DatabaseConnection
-
 class Repo:
 
 	def __init__(self, connection):
@@ -14,7 +10,7 @@ class Repo:
 		self.create_database()
 
 	def create_database(self):
-		query = f"""
+		query = """
 			create table if not exists location (
     			id integer primary key,
     			location text,
