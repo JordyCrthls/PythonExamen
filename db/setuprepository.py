@@ -16,7 +16,7 @@ class Repo:
         query = """
             create table if not exists location (
                 id integer primary key,
-                location text,
+                location_name text,
                 lat double,
                 lon double,
                 asl varchar(10),

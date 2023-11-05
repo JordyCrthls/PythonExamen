@@ -10,13 +10,15 @@ class Datarepository:
     def __init__(self, databasename):
         self.__databasename = databasename
 
-    def add_entry(self, entry):
-        query = """insert into weather_data (location, timestamp, temperature, sunshine, precipation, pressure, wind_gust)
-                 values (?, ?, ?, ?, ?, ?, ?)"""
-        # print(entry)
-        # params = (entry['location'], entry['timestamp'], entry['temperature'], entry['sunshine'], entry['precipation'])
-        # params = params + (entry['pressure'], entry['wind_gust'],)
-        # self.__edit_query(query, params)
+    def get_data_by_location_name(self, location_name):
+        query = '''select weather_data.* from 
+                weather_data inner join location l on l.id = weather_data.location where 
+                l.location_name is ?'''
+        return pd.read_sql_query(query, self.__database_connection(), params=(location_name,))
+
+    def add_entry_from_df(self, df):
+        connection = self.__database_connection()
+        df.to_sql(name='weather_data', con=connection, if_exists='replace', index=False)
 
     def __edit_query(self, query, params):
         connection = self.__database_connection()
@@ -36,7 +38,3 @@ class Datarepository:
             print(f'not plausible to connect to database {self.__databasename}')
             print('Due to error: ', e)
             exit(-1)
-
-    def add_entry_from_df(self, df):
-        connection = self.__database_connection()
-        df.to_sql(name='weather_data', con=connection, if_exists='replace', index=False)

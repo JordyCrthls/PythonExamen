@@ -9,7 +9,7 @@ class Locationrepository:
         self.__databasename = databasename
 
     def get_location_by_name(self, location_name):
-        query = "select * from location where location is ?"
+        query = "select * from location where location.location_name is ?"
 
         result = self.__fetch_one(query, location_name)
 
@@ -26,7 +26,7 @@ class Locationrepository:
             result += result
 
         query = '''
-            insert into location (id, location, lat, lon, asl, resolution, aggregation)
+            insert into location (id, location_name, lat, lon, asl, resolution, aggregation)
             values (?, ?, ?, ?, ?, ?, ?)
         '''
 

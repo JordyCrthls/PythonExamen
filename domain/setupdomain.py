@@ -2,7 +2,6 @@
 
 import csv
 import os
-from datetime import datetime
 
 import pandas as pd
 
@@ -43,7 +42,6 @@ class SetupDomain:
         df = pd.DataFrame(data)
         df['location'] = int(location_id)
         self.__data_domain.add_entry_from_df(df)
-        #tuple_list = [tuple(row[1:]) for row in df.itertuples(index=False)]
 
     def __cleaning_data(self):
         path = os.getcwd()
@@ -52,7 +50,7 @@ class SetupDomain:
             with open(file_path, 'r') as input_file:
                 reader = list(csv.reader(input_file, delimiter=","))
                 metadata = reader[:9]
-                cleane_data = reader[10:]
+                clean_data = reader[10:]
         except Exception as e:
             print('faild to open file due to ', e)
             exit(-1)
@@ -66,10 +64,10 @@ class SetupDomain:
             filtered_meta.append(filter_sub)
         metadata = [f for f in filtered_meta if len(f) == 2]
 
-        self.__transform_data(cleane_data)
+        clean_data = self.__transform_data(clean_data)
 
         meta_dictionary = {meta[0]: meta[1] for meta in metadata}
-        return meta_dictionary, cleane_data
+        return meta_dictionary, clean_data
 
     def __transform_data(self, data):
         df = pd.DataFrame(data)
