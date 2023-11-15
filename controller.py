@@ -29,3 +29,5 @@ match command:
 		if location_name == None or location_name == '':
 			location_name = 'Basel'
 		data_domain.get_info(location_name)
+	case 'rainfall':
+		data_domain.get_rainfall()
