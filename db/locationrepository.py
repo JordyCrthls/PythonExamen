@@ -46,6 +46,7 @@ class Locationrepository:
             connection.commit()
         except Exception as e:
             print('error', e)
+            exit(-1)
         finally:
             connection.close()
 
@@ -58,7 +59,7 @@ class Locationrepository:
             result = cursor.fetchone()[0]
         except Exception as e:
             print('error', e)
-
+            exit(-1)
         finally:
             connection.close()
         return result
@@ -72,7 +73,7 @@ class Locationrepository:
             result = cursor.fetchone()
         except Exception as e:
             print('error', e)
-
+            exit(-1)
         finally:
             connection.close()
         return result
@@ -83,3 +84,4 @@ class Locationrepository:
         except Exception as e:
             print(f'not plausible to connect to database {self.__databasename}')
             print('Due to error: ', e)
+            exit(-1)

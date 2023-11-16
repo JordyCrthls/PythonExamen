@@ -36,6 +36,7 @@ class Datarepository:
             connection.commit()
         except Exception as e:
             print('error', e)
+            exit(-1)
         finally:
             connection.close()
 

@@ -33,5 +33,15 @@ Geeft de basis info en de eerste twee entries weer van een bepaalde locatie die 
 ``python controller.py rainfall``
 Dit commando geeft de regenval weer per week, en vergelijkt deze met het gemiddelde van de maand.
 
+## Data exporteren
+De data van één locatie kan geëxporteerd worden dmv het volgende commando:
+``python controller.py to_csv``
+Vervolgens kan de locatie opgegeven worden, wanneer deze blanco is, is dit 'Basel'. Optioneel kan de data samengevoegd worden met de volgende mogelijkheden:
+- D: De data wordt gegroepeerd per dag.
+- W: De data wordt gegroepeerd per week.
+- M: De data wordt gegroepeerd per maand.
+- None of '': De data wordt niet gegroupeerd.
+
+De code is niet volledig verfijnd en 'User proof' gemaakt wegens tijdgebrek, er is op de meeste plaatsen wel een basis validatie.
 
 source: https://www.meteoblue.com/en/weather/archive/export?daterange=2022-01-01%20-%202023-10-31&locations%5B%5D=basel_switzerland_2661604&domain=NEMSGLOBAL&min=2022-01-01&max=2023-10-31&params%5B%5D=&params%5B%5D=temp2m&params%5B%5D=&params%5B%5D=&params%5B%5D=&params%5B%5D=&params%5B%5D=&params%5B%5D=&utc_offset=1&timeResolution=hourly&temperatureunit=CELSIUS&velocityunit=KILOMETER_PER_HOUR&energyunit=watts&lengthunit=metric&degree_day_type=10%3B30&gddBase=10&gddLimit=30
