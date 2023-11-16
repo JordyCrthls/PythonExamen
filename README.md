@@ -24,7 +24,7 @@ In dit project zit een voorbeeld csv bestand inbegrepen op de root van het proje
 Eens dat dit script is uitgevoerd is de database gevuld met data en kunnen alle andere scripts uitgevoerd worden op deze database.
 
 ## Nieuwe data toevoegen of data updaten
-Met het ``python controller.py set_src`` kan er een nieuw input bestand ingesteld worden om de database mee te vullen. Om dan later het commando ``python controller.py`` uit te voeren om deze data in de database op te slaan (TODO).
+Met het ``python controller.py set_src`` kan de database gevuld worden met extra data uit een csv bestand.
 
 ## Data opvragen
 ``python controller.py data-info``

@@ -19,10 +19,10 @@ class Datarepository:
                 l.location_name is ?'''
         return pd.read_sql_query(query, self.__database_connection(), params=(location_name,))
 
-    def get_all_rainfall(self):
+    def get_all_rainfall(self, location_name):
         query = '''select weather_data.timestamp, weather_data.precipation, l.location_name from 
-            weather_data inner join location l on l.id = weather_data.location'''
-        return pd.read_sql_query(query, self.__database_connection())
+            weather_data inner join location l on l.id = weather_data.location where l.location_name is ?'''
+        return pd.read_sql_query(query, self.__database_connection(), params=(location_name,))
 
     def add_entry_from_df(self, df):
         connection = self.__database_connection()
