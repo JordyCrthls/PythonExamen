@@ -4,8 +4,8 @@ from db.locationrepository import Locationrepository
 
 
 class LocationDomain:
-    def __init__(self, database_name):
-        self.__location_repo = Locationrepository(database_name)
+    def __init__(self):
+        self.__location_repo = Locationrepository()
 
     def get_location(self, location_name):
         return self.__location_repo.get_location_by_name(location_name)

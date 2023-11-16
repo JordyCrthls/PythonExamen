@@ -1,14 +1,17 @@
 # Main.Repository.datarespository.py
 
 import sqlite3
-
 import pandas as pd
 
+from dotenv import load_dotenv
+
+import os
 
 class Datarepository:
 
-    def __init__(self, databasename):
-        self.__databasename = databasename
+    def __init__(self):
+        load_dotenv()
+        self.__databasename = os.environ.get('DATABASE_PATH')
 
     def get_data_by_location_name(self, location_name):
         query = '''select weather_data.* from 

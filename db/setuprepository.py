@@ -1,12 +1,15 @@
 # setup.repo.py
 
-import sqlite3
+from dotenv import load_dotenv
 
+import sqlite3
+import os
 
 class Repo:
 
-    def __init__(self, databasename):
-        self.__databasename = databasename
+    def __init__(self):
+        load_dotenv()
+        self.__databasename = os.environ.get('DATABASE_PATH')
         self.init_database()
 
     def init_database(self):

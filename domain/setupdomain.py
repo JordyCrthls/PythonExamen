@@ -12,12 +12,11 @@ from domain.data import DataDomain
 
 class SetupDomain:
 
-    def __init__(self, databasename, src):
-        self.__database_name = databasename
+    def __init__(self, src):
         self.__src_file = src
-        self.__repo = Repo(databasename)
-        self.__location_domain = LocationDomain(databasename)
-        self.__data_domain = DataDomain(databasename)
+        self.__repo = Repo()
+        self.__location_domain = LocationDomain()
+        self.__data_domain = DataDomain()
 
     def set_src(self, src):
         if src is not None and src.strip() != '':

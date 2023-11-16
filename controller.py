@@ -9,12 +9,9 @@ script_name, command = sys.argv
 if len(sys.argv) != 2:
 	print("Geef minimaal 2 argument op.")
 
-database_name = input("Geef de database naam op of druk op enter voor de standaar database naam.")
-if database_name is None or database_name.strip() == '':
-	database_name = "corthalsjordy.db"
 csv = "src.csv"
-setup = SetupDomain(database_name, csv)
-data_domain = DataDomain(database_name)
+setup = SetupDomain(csv)
+data_domain = DataDomain()
 
 match command:
 	case 'init':

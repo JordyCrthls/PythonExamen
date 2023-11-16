@@ -1,12 +1,16 @@
 # Main.Repository.locationrepository.py
 
+from dotenv import load_dotenv
+
 import sqlite3
+import os
 
 
 class Locationrepository:
 
-    def __init__(self, databasename):
-        self.__databasename = databasename
+    def __init__(self):
+        load_dotenv()
+        self.__databasename = self.__databasename = os.environ.get('DATABASE_PATH')
 
     def get_location_by_name(self, location_name):
         query = "select * from location where location.location_name is ?"
